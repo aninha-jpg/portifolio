@@ -12,66 +12,80 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
-}
-
-html, body {
-    width: 100%;
-    height: 100%;
+    scroll-padding-top: 60px;
 }
 
 body {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     background-color: var(--cor1);
-    overflow-x: hidden;
-    max-width: 1050px;
-    min-width: 380px;
+    width: 100%;
 }
 
 header {
-    height: 100dvh;
+    height: calc(100dvh - 60px);
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    padding: 0 50px;
     justify-content: space-between;
-}
-
-header > nav {
-    display: flex;
-    top: 0;
-    margin: 0;
-    left: 0;
-    width: 100%;
-    height: 30px;
-    padding: 2px;
-    position: fixed;
-    background: var(--cor1);
-    justify-content: space-between;
-    align-items: center;
+    box-sizing: border-box;
 }
 
 header > img {
-    width: 500px;
-    height: 500px;
+    max-width: 40%;
+    height: auto;
     border-radius: 25%;
     margin-right: 50px;
     border: 2px solid var(--cor3);
     box-shadow: var(--cor3) -4px 9px 25px -6px;
 }
 
+nav {
+    display: flex;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    padding: 0 50px;
+    position: fixed;
+    background: rgba(30, 32, 44, 0.95);
+    backdrop-filter: blur(10px);
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 1px solid #60519b6c;
+    transition: top 0.5s ease-in-out;
+}
+
+.text-header {
+    color: white;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-size: 24px;
+}
+
 .links {
     display: flex;
-    gap: 15px;
-    top: 0;
-    margin-right: 20px;
+    gap: 20px;
+    align-items: center;
+}
+
+.links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    transition: 0.3s;
+}
+
+.links a:hover {
+    color: var(--cor3);
 }
 
 nav > a {
     font-family: "Playwrite DE Grund", Arial, Helvetica, sans-serif;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 300;
     padding: 5px;
     text-decoration: none;
@@ -79,22 +93,10 @@ nav > a {
     margin-right: 15px;
 }
 
-.links a {
-    padding: 5px;
-    font-size: large;
-    text-decoration: none;
-    color: white;
-    margin-right: 15px;
-}
-
-.links a:hover {
-    color: var(--cor3);
-}
-
 .maquina-txt {
     font-family: "Comic Relief", Arial, Helvetica, sans-serif;
     color: var(--cor3);
-    font-size: 5em;
+    font-size: 3em;
     max-width: 480px;
     text-shadow: var(--cor2) 2px 2px 6px;
 }
@@ -117,15 +119,91 @@ nav > a {
 
 section#sobre {
     min-height: 100dvh;
-    background-color: rgb(183, 178, 178);
+    background-color: #e2e4edba;
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+    border-radius: 20px;
+}
+
+section#sobre h2{
+    margin-bottom: 30px;
+}
+
+section#sobre h3{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+section#sobre p{
+    margin-top: 10px;
+}
+
+button {
+    background-color: var(--cor3);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: var(--cor4);
+    color: var(--cor1);
+}
+
+ul {
+    margin: 50px;
+    list-style: none;
+    text-align: center;
 }
 
 article > h2, h3 {
     color: var(--cor3);
 }
 
-
-
 footer {
     min-height: 100dvh;
+}
+
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100dvh;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    nav {
+        padding: 10px;
+        height: auto;
+        flex-direction: column;
+        padding-bottom: 10px;
+        justify-content: center;
+    }
+
+    .maquina-txt {
+        font-size: 2em;
+    }
+
+    .links {
+        gap: 10px;
+        margin-right: 0;
+    }
+
+    nav > a {
+        font-size: 1.1em;
+    }
+
+    .esconder {
+        display: none;
+    }
 }
