@@ -1,15 +1,17 @@
 //Mudando a cor do site com o botão.
 function btnparagrafo(){
-    const corpo = document.body;
+    const corpo = window.document.querySelector('section#sobre');
 
-    corpo.style.backgroundColor = "#1e202c";
-    corpo.style.backgroundColor = "#60519b";
+    corpo.style.backgroundColor = "#31323e";
+    corpo.style.color = "#ffffff";
+    corpo.style.boxShadow = "0px 2px 7px #60519b";
 
     window.alert("É exatamente esse 'Ahh' que me move...")
 
     setTimeout(() => {
         corpo.style.backgroundColor = "";
-        corpo.style.backgroundColor = "";
+        corpo.style.color = "";
+        corpo.style.boxShadow = "";
     }, 3000);
 }
 
